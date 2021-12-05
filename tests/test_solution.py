@@ -18,3 +18,15 @@ def test_greet():
 )
 def test_glass_is_full(glass_input, expected):
     assert glass_input.is_full() == expected
+
+
+def test_calculate_water_level():
+    glass_tower = calculate_water_level(2)
+    assert glass_tower[0][0].fill_level == 250
+    assert glass_tower[1][0].fill_level == 250
+    assert glass_tower[1][1].fill_level == 250
+    assert glass_tower[2][0].fill_level == 250
+    assert glass_tower[2][1].fill_level == 250
+    assert glass_tower[3][0].fill_level == 31.25
+    assert glass_tower[3][1].fill_level == 218.75
+    assert glass_tower[3][3].fill_level == 31.25
