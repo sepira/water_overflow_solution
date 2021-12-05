@@ -1,3 +1,4 @@
+import argparse
 from typing import List
 
 
@@ -44,3 +45,23 @@ def calculate_water_level(poured) -> List[List[Glass]]:
 
 def greet(name):
     return f'Hi, {name}!'
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="a CLI that takes an amount of water to be poured, "
+                                                 "and the row and glass position to return how"
+                                                 "much liquid is in the j'th glass of the i'th row "
+                                                 "when K litres are poured into the top most glass ")
+    parser.add_argument('--poured', type=float,
+                        help='a floating number representing K litres to be poured in the glass')
+    parser.add_argument('--row', type=int,
+                        help='an int number representing ith row of the glass')
+    parser.add_argument('--glass', type=int,
+                        help='an int number representing jth position of the glass')
+    args = parser.parse_args()
+
+    glass_tower = calculate_water_level(args.poured)
+    query_fill_level = glass_tower[args.row][args.glass].fill_level
+
+    print(f'When poured {args.poured} litres of water, the liquid in row {args.row} '
+          f'of glass {args.glass} is {query_fill_level} mL')

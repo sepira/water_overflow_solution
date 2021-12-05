@@ -1,6 +1,6 @@
 import pytest
 
-from water_overflow_solution.app.main import greet, Glass
+from water_overflow_solution.app.main import greet, Glass, calculate_water_level
 
 
 def test_greet():
