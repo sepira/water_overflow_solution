@@ -10,6 +10,8 @@ This assumes you have python3.7 and have poetry as a dependencey package, if not
 
 ``pip install poetry``
 
+then activate the virtual env by running:
+
 ``poetry shell``
 
 # Running the test
