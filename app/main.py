@@ -26,6 +26,7 @@ def calculate_water_level(poured) -> List[List[Glass]]:
     capacity = 250
     water_left = int(poured * 1000)  # L to mL conversion
     max_row = water_left // capacity
+    # assumed that we can generate the glass tower until we reach the max_row
     glass_tower = [[Glass(capacity=capacity) for _ in range(j + 1)] for j in range(max_row)]
     glass_tower[0][0].fill_level = water_left
     row = 0
@@ -43,7 +44,7 @@ def calculate_water_level(poured) -> List[List[Glass]]:
     return glass_tower
 
 
-def greet(name):
+def greet(name: str) -> str:
     return f'Hi, {name}!'
 
 
